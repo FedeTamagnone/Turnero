@@ -85,11 +85,11 @@ function horariosDisponibles() {
         switch (horario) {
             case 1:
                 alert("Selecionó Viernes 10hs")
-                horario = "Jueves 10hs"
+                horario = "Viernes 10hs"
                 break
             case 2:
                 alert("Selecionó Viernes 12hs")
-                horario = "Jueves 12hs"
+                horario = "Viernes 12hs"
                 break
             default:
                 alert("opcion inexistente")
