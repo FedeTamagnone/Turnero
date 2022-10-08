@@ -131,25 +131,25 @@ class Turno {
 }
 const paciente = new Turno(nombre, apellido, ingreso, horario);
 
-console.log(paciente);
+
 
 
 function agregarPaciente() {
     let pregunta = prompt("¿Desea cargar otro turno?")
     if (pregunta == "Si" || pregunta == "si" || pregunta == "SI") {
-        let nombre = prompt("Ingrese su nombre")
-        let apellido = prompt("Ingrese su apellido")
+        nombre = prompt("Ingrese su nombre")
+        apellido = prompt("Ingrese su apellido")
         ingreso = parseInt(prompt("Por favor seleccione número del especialista:\n 1-Nutrición \n 2-Oculista \n 3-Médico Clínico \n 4-Otro"))
         cargarTurno()
         horariosDisponibles()
         alert(apellido + " " + nombre + " tiene turno con " + ingreso + " el día " + horario)
         cambioDatos()
-        listaPaciente.push
+        listaPaciente.push(paciente)
     } else {
         alert("Muchas gracias")
     }
 }
 
 agregarPaciente()
-
+console.log(paciente);
 
