@@ -5,6 +5,10 @@ let otro = ""
 let horario = ""
 let listaPaciente = []
 
+
+
+/* --------------------------- clase constructora --------------------------- */
+
 class Turno {
     constructor(nombre, apellido, ingreso, horario) {
         this.nombre = nombre
@@ -106,18 +110,6 @@ function horariosDisponibles() {
     }
 }
 
-/* -------------- Declaro funciones, alert con datos obtenidos, capturo valores en [] y los pusheo a lista ------------- */
-
-cargarTurno()
-horariosDisponibles()
-alert(apellido + " " + nombre + " tiene turno con " + ingreso + " el día " + horario)
-paciente = new Turno(nombre, apellido, ingreso, horario);
-listaPaciente.push(paciente)
-cambioDatos()
-console.log(listaPaciente);
-
-
-
 /* ------------------------ Opcion de cambio de datos ----------------------- */
 function cambioDatos() {
     let cambio = prompt("¿Desea realizar un cambio? \n Si \n No ")
@@ -133,20 +125,40 @@ function cambioDatos() {
 /* ------------------------ funcion agregar pacientes ----------------------- */
 function agregarPaciente() {
     let pregunta = prompt("¿Desea cargar otro turno? \n Si \n No")
-    if (pregunta == "Si" || pregunta == "si" || pregunta == "SI") {
-        nombre = prompt("Ingrese su nombre")
-        apellido = prompt("Ingrese su apellido")
-        ingreso = parseInt(prompt("Por favor seleccione número del especialista:\n 1-Nutrición \n 2-Oculista \n 3-Médico Clínico \n 4-Otro"))
-        cargarTurno()
-        horariosDisponibles()
-        alert(apellido + " " + nombre + " tiene turno con " + ingreso + " el día " + horario)
-        cambioDatos()
-        paciente = new Turno(nombre, apellido, ingreso, horario);
-        listaPaciente.push(paciente)
-    } else {
-        alert("Muchas gracias")
-    }
+    while (pregunta == "Si" || pregunta == "si" || pregunta == "SI") {
+    nombre = prompt("Ingrese su nombre")
+    apellido = prompt("Ingrese su apellido")
+    ingreso = parseInt(prompt("Por favor seleccione número del especialista:\n 1-Nutrición \n 2-Oculista \n 3-Médico Clínico \n 4-Otro"))
+    cargarTurno()
+    horariosDisponibles()
+    alert(apellido + " " + nombre + " tiene turno con " + ingreso + " el día " + horario)
+    cambioDatos()
+    paciente = new Turno(nombre, apellido, ingreso, horario);
+    listaPaciente.push(paciente)
+    pregunta = prompt("¿Desea cargar otro turno? \n Si \n No")
+    } 
 }
 
+/* -------------- Declaro funciones, alert con datos obtenidos, capturo valores en [] y los pusheo a lista ------------- */
+
+cargarTurno()
+horariosDisponibles()
+alert(apellido + " " + nombre + " tiene turno con " + ingreso + " el día " + horario)
+cambioDatos()
+paciente = new Turno(nombre, apellido, ingreso, horario);
+listaPaciente.push(paciente)
 agregarPaciente()
 console.log(listaPaciente);
+
+
+/* ------------------------- Filtro por especialista ------------------------ */
+
+let turnosNutricion = listaPaciente.filter((persona) => {return persona.ingreso == "Nutrición"})
+console.log(turnosNutricion);
+
+let turnosOculista = listaPaciente.filter((persona) => {return persona.ingreso == "Oculista"})
+console.log(turnosOculista);
+
+let turnosMedicoClinico = listaPaciente.filter((persona) => {return persona.ingreso == "Médico clínico"})
+console.log(turnosMedicoClinico);
+
