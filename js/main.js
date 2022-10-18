@@ -148,17 +148,20 @@ cambioDatos()
 paciente = new Turno(nombre, apellido, ingreso, horario);
 listaPaciente.push(paciente)
 agregarPaciente()
+console.log("Total de pacientes:");
 console.log(listaPaciente);
 
 
 /* ------------------------- Filtro por especialista ------------------------ */
 
 let turnosNutricion = listaPaciente.filter((persona) => {return persona.ingreso == "Nutrición"})
+console.log("Turnos con Nutricionistas: ");
 console.log(turnosNutricion);
 
 let turnosOculista = listaPaciente.filter((persona) => {return persona.ingreso == "Oculista"})
+console.log("Turnos con Oculista: ");
 console.log(turnosOculista);
 
 let turnosMedicoClinico = listaPaciente.filter((persona) => {return persona.ingreso == "Médico clínico"})
+console.log("Turnos con Médico Clinico: ");
 console.log(turnosMedicoClinico);
-
